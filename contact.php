@@ -1,3 +1,21 @@
+<?php 
+$size = ini_get('post_max_size');
+
+$last = $size[-1];
+
+switch ($last){
+  case "K":
+    $size = (int)$size * 1024; break;
+  case "M":
+    $size = (int)$size * 1024 * 1024; break;
+  case "G":
+    $size = (int)$size * 1024 * 1024 * 1024; break;
+  default:
+    $size = (int)$size; break;
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -36,6 +54,7 @@
       <br />
       <input type='submit' value='Отправить' />
     </form>
+      <p>Максимальный размер отправляемых данных <?= $size ?> байт.</p>
     <!-- Область основного контента -->
   </div>
   <div id="nav">

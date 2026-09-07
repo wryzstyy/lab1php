@@ -63,24 +63,31 @@
     <!-- Навигация -->
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
+    <?php
+      $leftMenu = [
+      ['link'=>'Домой', 'href'=>'index.php'],
+      ['link'=>'О нас', 'href'=>'about.php'],
+      ['link'=>'Контакты', 'href'=>'contact.php'],
+      ['link'=>'Таблица умножения', 'href'=>'table.php'],
+      ['link'=>'Калькулятор', 'href'=>'calc.php']
+      ];
+      ?>
+
     <ul>
-      <li><a href='index.php'>Домой</a>
-      </li>
-      <li><a href='about.php'>О нас</a>
-      </li>
-      <li><a href='contact.php'>Контакты</a>
-      </li>
-      <li><a href='table.php'>Таблица умножения</a>
-      </li>
-      <li><a href='calc.php'>Калькулятор</a>
-      </li>
+      <?php foreach ($leftMenu as $link): ?>
+        <li>
+            <a href="<?= $link['href'] ?>">
+                <?= $link['link'] ?>
+            </a>
+        </li>
+      <?php endforeach; ?>
     </ul>
     <!-- Меню -->
     <!-- Навигация -->
   </div>
   <div id="footer">
     <!-- Нижняя часть страницы -->
-    &copy; Супер Мега Веб-мастер, 2000 &ndash; 2026
+    &copy; Супер Мега Веб-мастер, 2000 &ndash; <?php echo $year;?>
     <!-- Нижняя часть страницы -->
   </div>
 </body>
