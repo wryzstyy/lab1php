@@ -1,3 +1,28 @@
+<?php 
+$cols = 3;
+$rows = 4;
+$color = 'aqua';
+
+function drawTable(int $cols,int $rows,string $color)
+{
+    echo "<table width='150' border='1'>";
+    for ($tr = 1; $tr <= $rows; $tr++) {
+        echo "<tr>";
+        for ($td = 1; $td <= $cols; $td++) {
+            $cellColor = ($tr == 1 || $td == 1) ? $color : "white";
+            $fontWeight = ($tr == 1) ? "bold" : "normal";
+
+            echo "<td style='background-color: $cellColor; font-weight: $fontWeight;'>";
+            echo ($tr * $td);
+            echo "</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -38,43 +63,9 @@
       <input type='submit' value='Создать' />
     </form>
     <!-- Таблица -->
-    <table border='1' width="200">
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>4</td>
-        <td>6</td>
-        <td>8</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>6</td>
-        <td>9</td>
-        <td>12</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>8</td>
-        <td>12</td>
-        <td>16</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>10</td>
-        <td>15</td>
-        <td>20</td>
-        <td>25</td>
-      </tr>
-    </table>
+    <?php 
+      drawTable($cols, $rows, $color);
+    ?>
     <!-- Таблица -->
     <!-- Область основного контента -->
   </div>

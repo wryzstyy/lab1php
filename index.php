@@ -15,9 +15,35 @@
 
       else {$welcome = "Доброй ночи";}
 
+
+      $leftMenu = [
+      ['link'=>'Домой', 'href'=>'index.php'],
+      ['link'=>'О нас', 'href'=>'about.php'],
+      ['link'=>'Контакты', 'href'=>'contact.php'],
+      ['link'=>'Таблица умножения', 'href'=>'table.php'],
+      ['link'=>'Калькулятор', 'href'=>'calc.php']
+      ];
+
+
+      function drawMenu(array $menu, bool $vertical = true){
+            echo "<ul>";
+
+        foreach ($menu as $link) {
+        if ($vertical) {
+            echo "<li>";
+        } else {
+            echo "<li style='display: inline; margin-right: 20px;'>";
+        }
+
+        echo "<a href='{$link['href']}'>{$link['link']}</a>";
+        echo "</li>";
+        } 
+
+        echo "</ul>";
+        }
+      
+
       ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -64,25 +90,12 @@
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
     <?php
-      $leftMenu = [
-      ['link'=>'Домой', 'href'=>'index.php'],
-      ['link'=>'О нас', 'href'=>'about.php'],
-      ['link'=>'Контакты', 'href'=>'contact.php'],
-      ['link'=>'Таблица умножения', 'href'=>'table.php'],
-      ['link'=>'Калькулятор', 'href'=>'calc.php']
-      ];
+      drawMenu($leftMenu, )
       ?>
 
-    <ul>
-      <?php foreach ($leftMenu as $link): ?>
-        <li>
-            <a href="<?= $link['href'] ?>">
-                <?= $link['link'] ?>
-            </a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
+
     <!-- Меню -->
+
     <!-- Навигация -->
   </div>
   <div id="footer">
